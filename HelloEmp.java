@@ -1,5 +1,4 @@
 package javaEmp;
-import java.util.*;
 public class HelloEmp {
 	public static void main(String[] args){
 		int is_full_present=1; 
@@ -8,25 +7,22 @@ public class HelloEmp {
 		int full_day_work_hr=8; 
 		int part_day_work_hr=4; 
 		int salary;
-		//double random= Math.floor(Math.random()*10)%3;
-		//System.out.println("random value is:"+random);
-		Random var = new Random();
-		int random;
-		random=var.nextInt(3);
-		System.out.println("random variable is:"+random);
-		switch (random) {
-		case 1: 
-			System.out.println("employee is present");
-			salary=(wage_per_hr*full_day_work_hr);
-			System.out.println("salary is:"+salary);
-			break;
-		case 2:
-			salary=(wage_per_hr*part_day_work_hr);
-			System.out.println("salary is :"+salary);
-			System.out.println("employee is part time present");
-		    break;
-		default:
-			System.out.println("when employee is absent for the day his salary is zero");					
+		int working_days=20;
+		int salary_per_month=0;
+		for (int i=1;i<working_days;i++)
+		{
+			double random= Math.floor(Math.random()*10)%2;
+			if (is_full_present==random)
+			{
+				salary=(wage_per_hr*full_day_work_hr);
+				salary_per_month=(salary_per_month+salary);
+			}
+			else if (is_part_present==random)
+			{
+				salary=(wage_per_hr*part_day_work_hr);
+				salary_per_month=(salary_per_month+salary);
+			}
 		}
+		System.out.println("salary per month is"+salary_per_month);
 	}
 }
